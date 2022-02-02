@@ -8,6 +8,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JButton;
 
 public class UebersichtPanel extends JPanel {
 	private JList<String> pflanzenList;
@@ -24,9 +26,10 @@ public class UebersichtPanel extends JPanel {
 		setLayout(new GridLayout(0, 3, 0, 0));
 		
 		JPanel panelPflanzen = new JPanel();
+		panelPflanzen.setBackground(Color.LIGHT_GRAY);
 		panelPflanzen.setBorder(new EmptyBorder(10, 10, 10, 10));
 		add(panelPflanzen);
-		panelPflanzen.setLayout(new BorderLayout(0, 0));
+		panelPflanzen.setLayout(new BorderLayout(0, 10));
 		
 		JLabel lblPflanzen = new JLabel("Pflanzen");
 		lblPflanzen.setHorizontalAlignment(SwingConstants.CENTER);
@@ -39,9 +42,10 @@ public class UebersichtPanel extends JPanel {
 		panelPflanzen.add(pflanzenAnzahlList, BorderLayout.EAST);
 		
 		JPanel panelTiere = new JPanel();
+		panelTiere.setBackground(Color.LIGHT_GRAY);
 		panelTiere.setBorder(new EmptyBorder(10, 10, 10, 10));
 		add(panelTiere);
-		panelTiere.setLayout(new BorderLayout(0, 0));
+		panelTiere.setLayout(new BorderLayout(0, 10));
 		
 		JLabel lblTiere = new JLabel("Tiere");
 		lblTiere.setHorizontalAlignment(SwingConstants.CENTER);
@@ -54,11 +58,13 @@ public class UebersichtPanel extends JPanel {
 		panelTiere.add(tiereAnzahlList, BorderLayout.EAST);
 		
 		JPanel panelProdukte = new JPanel();
+		panelProdukte.setBackground(Color.LIGHT_GRAY);
 		panelProdukte.setBorder(new EmptyBorder(10, 10, 10, 10));
 		add(panelProdukte);
-		panelProdukte.setLayout(new BorderLayout(0, 0));
+		panelProdukte.setLayout(new BorderLayout(0, 10));
 		
 		JLabel lblProdukte = new JLabel("Produkte");
+		lblProdukte.setHorizontalAlignment(SwingConstants.CENTER);
 		panelProdukte.add(lblProdukte, BorderLayout.NORTH);
 		
 		produktList = new JList();
