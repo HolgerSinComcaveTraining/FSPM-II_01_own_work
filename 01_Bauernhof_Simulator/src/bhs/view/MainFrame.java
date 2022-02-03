@@ -33,6 +33,7 @@ public class MainFrame extends JFrame {
 	private UebersichtPanel uebersichtPanel;
 	private JTabbedPane mainTabbedPane;
 	private JButton btnNewRound;
+	private StallPanel stallPanel;
 
 	/**
 	 * Launch the application.
@@ -56,7 +57,7 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		setTitle("Bauernhofsimulator - Holger");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 800, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -91,7 +92,7 @@ public class MainFrame extends JFrame {
 		uebersichtPanel.setBackground(SystemColor.menu);
 		mainTabbedPane.addTab("    \u00DCbersicht    ", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), uebersichtPanel, null);
 		
-		StallPanel stallPanel = new StallPanel();
+		stallPanel = new StallPanel();
 		mainTabbedPane.addTab("Stall", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), stallPanel, null);
 		
 		JPanel panelFelder = new JPanel();
@@ -147,6 +148,10 @@ public class MainFrame extends JFrame {
 
 	public JButton getBtnNewRound() {
 		return btnNewRound;
+	}
+
+	public StallPanel getStallPanel() {
+		return stallPanel;
 	}
 
 }

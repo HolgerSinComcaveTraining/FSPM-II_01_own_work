@@ -2,6 +2,7 @@ package bhs.model.tier;
 
 public class Kuh extends Tier {
 	private static int kuhCounter = 0;
+	private int melkmenge;
 	
 
 	/**
@@ -9,12 +10,15 @@ public class Kuh extends Tier {
 	 */
 	public Kuh() {
 		super("Kuh " + kuhCounter++);
-		
+		this.melkmenge = 6;
 	}
 	
 	public int melken() {
-		System.out.println("Kuh " + this + " wird gemolken");
-		return 6;
+		int milch = this.isErwachsen() ? melkmenge : 0;
+		System.out.println("Kuh " + this + " wird gemolken und produzierte: " + milch);
+		return milch;
+		
 	}
+	
 	
 }

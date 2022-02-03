@@ -8,10 +8,21 @@ import javax.swing.BoxLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.SwingConstants;
+
+import bhs.model.tier.Kuh;
+import bhs.model.tier.Schaf;
+import bhs.model.tier.Schwein;
+
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 
 public class StallPanel extends JPanel {
+	private JList<Kuh> kuhList;
+	private JList<Schaf> schafList;
+	private JList<Schwein> schweinList;
+	private JButton btnSchweineSchlachten;
+	private JButton btnMelken;
+	private JButton btnScheren;
 
 	/**
 	 * Create the panel.
@@ -27,12 +38,9 @@ public class StallPanel extends JPanel {
 		lblSchweine.setHorizontalAlignment(SwingConstants.CENTER);
 		panelSchweine.add(lblSchweine, BorderLayout.NORTH);
 		
-		JPanel panel = new JPanel();
-		panelSchweine.add(panel);
-		
-		JList schweinIdList = new JList();
-		schweinIdList.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Schwein 1", "Schwein 2", "Schwein x"};
+		schweinList = new JList();
+		schweinList.setModel(new AbstractListModel() {
+			String[] values = new String[] {"Schwein 1", "Schwein 2"};
 			public int getSize() {
 				return values.length;
 			}
@@ -40,57 +48,9 @@ public class StallPanel extends JPanel {
 				return values[index];
 			}
 		});
-		panel.add(schweinIdList);
+		panelSchweine.add(schweinList, BorderLayout.CENTER);
 		
-		JList schweinAlterList = new JList();
-		schweinAlterList.setModel(new AbstractListModel() {
-			String[] values = new String[] {"1", "2", "3"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		panel.add(schweinAlterList);
-		
-		JList schweinGewichtList = new JList();
-		schweinGewichtList.setModel(new AbstractListModel() {
-			String[] values = new String[] {"5", "10", "20"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		panel.add(schweinGewichtList);
-		
-		JList schweinKaufpreisList = new JList();
-		schweinKaufpreisList.setModel(new AbstractListModel() {
-			String[] values = new String[] {"0", "200", "250"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		panel.add(schweinKaufpreisList);
-		
-		JList schweinHungerList = new JList();
-		schweinHungerList.setModel(new AbstractListModel() {
-			String[] values = new String[] {"0", "1", "3"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		panel.add(schweinHungerList);
-		
-		JButton btnSchweineSchlachten = new JButton("Schlachten");
+		btnSchweineSchlachten = new JButton("Schlachten");
 		panelSchweine.add(btnSchweineSchlachten, BorderLayout.SOUTH);
 		
 		JPanel panelKuehe = new JPanel();
@@ -101,8 +61,8 @@ public class StallPanel extends JPanel {
 		lblKuehe.setHorizontalAlignment(SwingConstants.CENTER);
 		panelKuehe.add(lblKuehe, BorderLayout.NORTH);
 		
-		JList kuhIdList = new JList();
-		kuhIdList.setModel(new AbstractListModel() {
+		kuhList = new JList();
+		kuhList.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Kuh 1", "Kuh 2"};
 			public int getSize() {
 				return values.length;
@@ -111,9 +71,9 @@ public class StallPanel extends JPanel {
 				return values[index];
 			}
 		});
-		panelKuehe.add(kuhIdList);
+		panelKuehe.add(kuhList);
 		
-		JButton btnMelken = new JButton("Melken");
+		btnMelken = new JButton("Melken");
 		panelKuehe.add(btnMelken, BorderLayout.SOUTH);
 		
 		JPanel panelSchafe = new JPanel();
@@ -121,10 +81,11 @@ public class StallPanel extends JPanel {
 		panelSchafe.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblSchafe = new JLabel("Schafe");
+		lblSchafe.setHorizontalAlignment(SwingConstants.CENTER);
 		panelSchafe.add(lblSchafe, BorderLayout.NORTH);
 		
-		JList schafIdList = new JList();
-		schafIdList.setModel(new AbstractListModel() {
+		schafList = new JList();
+		schafList.setModel(new AbstractListModel() {
 			String[] values = new String[] {"schaf 1", "Schaf 2"};
 			public int getSize() {
 				return values.length;
@@ -133,11 +94,35 @@ public class StallPanel extends JPanel {
 				return values[index];
 			}
 		});
-		panelSchafe.add(schafIdList, BorderLayout.CENTER);
+		panelSchafe.add(schafList, BorderLayout.CENTER);
 		
-		JButton btnScheren = new JButton("Scheren");
+		btnScheren = new JButton("Scheren");
 		panelSchafe.add(btnScheren, BorderLayout.SOUTH);
 
+	}
+
+	public JList<Kuh> getKuhList() {
+		return kuhList;
+	}
+
+	public JList<Schaf> getSchafList() {
+		return schafList;
+	}
+
+	public JList<Schwein> getSchweinList() {
+		return schweinList;
+	}
+
+	public JButton getBtnSchweineSchlachten() {
+		return btnSchweineSchlachten;
+	}
+
+	public JButton getBtnMelken() {
+		return btnMelken;
+	}
+
+	public JButton getBtnScheren() {
+		return btnScheren;
 	}
 
 }

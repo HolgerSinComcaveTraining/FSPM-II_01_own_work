@@ -13,8 +13,11 @@ public class Schwein extends Tier {
 	}
 	
 	public double schlachten() {
-		System.out.println("Schwein " + this + " wurde  geschlachtet");
-		return this.getGewicht() * Math.random()*0.25 + 0.5;
+		long zahl= Math.round((this.getGewicht() * (Math.random()*0.25 + 0.5)) * 1000);
+		System.out.println(zahl);
+		double speck = (double) zahl / 1000; 
+		System.out.println("Schwein " + this + " wurde  geschlachtet und produzierte: " + speck);
+		return speck;
 	}
 	
 }

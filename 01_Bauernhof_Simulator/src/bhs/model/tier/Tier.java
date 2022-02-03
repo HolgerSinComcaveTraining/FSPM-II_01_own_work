@@ -6,6 +6,7 @@ public abstract class Tier {
 	private int hunger;
 	private boolean erwachsen;
 	private String name;
+	private String status;
 	
 	/**
 	 * @param alter
@@ -15,10 +16,11 @@ public abstract class Tier {
 	 */
 	public Tier(String name) {
 		this.alter = 0;
-		this.gewicht = 0;
+		this.gewicht = 5;
 		this.hunger = 0;
 		this.erwachsen = false;
 		this.name =name;
+		
 		
 	}
 
@@ -53,7 +55,30 @@ public abstract class Tier {
 	public void setErwachsen(boolean erwachsen) {
 		this.erwachsen = erwachsen;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getStatus() {
+		
+		if (this.isErwachsen()) {
+			status = "/alt";
+		}
+		else {
+			status = "/jung";
+		}
+		status += " /H: " + hunger;
+		return status;
+	}
 	
+	public String toString() {
+		return this.getName() + " Alter: " + this.getAlter() + " Gew: " + this.getGewicht() + " " + this.getStatus();
+	}
 	
 	
 }
