@@ -22,6 +22,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import bhs.view.panels.StallPanel;
+import bhs.view.panels.FelderPanel;
 
 public class MainFrame extends JFrame {
 
@@ -34,6 +35,7 @@ public class MainFrame extends JFrame {
 	private JTabbedPane mainTabbedPane;
 	private JButton btnNewRound;
 	private StallPanel stallPanel;
+	private FelderPanel felderPanel;
 
 	/**
 	 * Launch the application.
@@ -95,8 +97,8 @@ public class MainFrame extends JFrame {
 		stallPanel = new StallPanel();
 		mainTabbedPane.addTab("Stall", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), stallPanel, null);
 		
-		JPanel panelFelder = new JPanel();
-		mainTabbedPane.addTab("Felder", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), panelFelder, null);
+		felderPanel = new FelderPanel();
+		mainTabbedPane.addTab("Felder", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), felderPanel, null);
 		
 		JPanel panelZucht = new JPanel();
 		mainTabbedPane.addTab("Zucht", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), panelZucht, null);
@@ -152,6 +154,10 @@ public class MainFrame extends JFrame {
 
 	public StallPanel getStallPanel() {
 		return stallPanel;
+	}
+
+	public FelderPanel getFelderPanel() {
+		return felderPanel;
 	}
 
 }

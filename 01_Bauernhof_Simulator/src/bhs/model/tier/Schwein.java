@@ -1,7 +1,7 @@
 package bhs.model.tier;
 
 public class Schwein extends Tier {
-	private static int schweinCounter = 0;
+	private static int schweinCounter = 1;
 	
 
 	/**

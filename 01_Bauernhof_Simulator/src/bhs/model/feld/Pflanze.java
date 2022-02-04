@@ -6,22 +6,25 @@ public class Pflanze {
 
 	public static final String PFLANZE_APFEL = "Apfel";
 	public static final String PFLANZE_BIRNE = "Birne";
-	public static final String PFLANZE_CHINAKOHL_ = "Chinakohl";
+	public static final String PFLANZE_CHINAKOHL = "Chinakohl";
 	public static final String PFLANZE_MOEHRE = "Moehre";
 	public static final String PFLANZE_KARTOFFEL = "Kartoffel";
 	
-	//public static ArrayList<String> pflanzenSorten= new ArrayList<String>();
+	
+	
+	public static final String[] PFLANZEN_SORTEN= {PFLANZE_APFEL, PFLANZE_BIRNE, PFLANZE_CHINAKOHL, PFLANZE_MOEHRE, PFLANZE_KARTOFFEL};
 	
 	private int quality;
 	private int gewicht;
-	private String pflanzenart;
+	private String pflanzenSorte;
+	
 	
 	
 	/**
 	 * @param preis
 	 */
-	public Pflanze(String art) {
-		this.pflanzenart = art;
+	public Pflanze(String sorte) {
+		this.pflanzenSorte = sorte;
 	}
 	
 	
@@ -38,7 +41,7 @@ public class Pflanze {
 	
 	@Override
 	public String toString() {
-		return "Pflanze [pflanzenart=" + pflanzenart + ", quality=" + quality + ", gewicht=" + gewicht + "]";
+		return "Pflanze [pflanzenSorte=" + pflanzenSorte + ", quality=" + quality + ", gewicht=" + gewicht + "]";
 	}
 
 
