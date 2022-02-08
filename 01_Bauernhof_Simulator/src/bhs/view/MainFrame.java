@@ -23,6 +23,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import bhs.view.panels.StallPanel;
 import bhs.view.panels.FelderPanel;
+import bhs.view.panels.ZuchtPanel;
+import bhs.view.panels.MarktPanel;
 
 public class MainFrame extends JFrame {
 
@@ -36,6 +38,12 @@ public class MainFrame extends JFrame {
 	private JButton btnNewRound;
 	private StallPanel stallPanel;
 	private FelderPanel felderPanel;
+	private ZuchtPanel zuchtPanel;
+	private MarktPanel marktPanel;
+	private UebersichtPanel panelMarktBestand;
+	private JTabbedPane marktTabbedPane;
+	private JPanel panelAnkauf;
+	private JPanel panelVerkauf;
 
 	/**
 	 * Launch the application.
@@ -100,24 +108,24 @@ public class MainFrame extends JFrame {
 		felderPanel = new FelderPanel();
 		mainTabbedPane.addTab("Felder", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), felderPanel, null);
 		
-		JPanel panelZucht = new JPanel();
-		mainTabbedPane.addTab("Zucht", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), panelZucht, null);
+		zuchtPanel = new ZuchtPanel();
+		mainTabbedPane.addTab("Zucht", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), zuchtPanel, null);
 		
-		JPanel panelMarkt = new JPanel();
-		mainTabbedPane.addTab("Markt", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), panelMarkt, null);
-		panelMarkt.setLayout(new GridLayout(0, 1, 0, 0));
+		marktPanel = new MarktPanel();
+		mainTabbedPane.addTab("Markt", new ImageIcon(MainFrame.class.getResource("/bhs/view/empty_1_40.png")), marktPanel, null);
+		marktPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		UebersichtPanel panelMarktBestand = new UebersichtPanel();
-		panelMarkt.add(panelMarktBestand);
+		panelMarktBestand = new UebersichtPanel();
+		marktPanel.add(panelMarktBestand);
 		
-		JTabbedPane marktTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		marktTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		marktTabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panelMarkt.add(marktTabbedPane);
+		marktPanel.add(marktTabbedPane);
 		
-		JPanel panelAnkauf = new JPanel();
+		panelAnkauf = new JPanel();
 		marktTabbedPane.addTab("Ankauf", null, panelAnkauf, null);
 		
-		JPanel panelVerkauf = new JPanel();
+		panelVerkauf = new JPanel();
 		marktTabbedPane.addTab("Verkauf", null, panelVerkauf, null);
 		
 		btnNewRound = new JButton("Runde beenden");
