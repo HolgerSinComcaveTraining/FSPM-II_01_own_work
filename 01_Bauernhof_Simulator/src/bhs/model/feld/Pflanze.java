@@ -36,9 +36,11 @@ public class Pflanze {
 	}
 	
 	
-	
-	
-	
+	public String getPflanzenSorte() {
+		return pflanzenSorte;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Pflanze [pflanzenSorte=" + pflanzenSorte + ", quality=" + quality + ", gewicht=" + gewicht + "]";
